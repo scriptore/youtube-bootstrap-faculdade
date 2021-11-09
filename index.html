@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>youTube</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <link rel="stylesheet" href="./styles/main.css">
+
+<body>
+
+  <header class="container-fluid ">
+    <nav class="navbar navbar-expand text-dark fixed-top bg-light">
+      <div class="container-fluid">
+        <div class="d-flex">
+          <a href="#" class="navbar-nav" data-bs-toggle="offcanvas" data-bs-target="#sidebar" role="button"
+            aria-controls="sidebar">
+            <svg viewBox="0 0 16 16 16" class="bi" width="40" height="32">
+              <path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z"></path>
+            </svg>
+          </a>
+          <a href="#" class="navbar-nav">
+            <img src="./assets/images/logo.png" alt="youtubeLogo" width="150" height="45">
+          </a>
+        </div>
+        <form class="d-flex flex-nowrap input-group me-auto mb-2 mb-md-0">
+          <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar"
+            aria-describedby="searchIcon">
+          <span class="input-group-text" id="searchIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+              </path>
+            </svg>
+          </span>
+          <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#searchModal" data-toggle="tooltip"
+            data-bs-placement="bottom" title="Pesquisa por voz"> <i class="fa fa-microphone"></i></a>
+        </form>
+        <div class="d-flex flex-nowrap">
+          <ul class="navbar-nav me-2 mb-2 mb-md-0">
+            <li class="nav-item dropdown">
+              <a href="#" class="btn" role="button" id="dropdownMenuVideo" data-bs-toggle="dropdown"
+                data-toggle="tooltip" data-bs-placement="bottom" title="Create" aria-expanded="false">
+                <i class="fa fa-video-camera"></i>
+              </a>
+        
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuVideo">
+                <li><a class="dropdown-item" href="#">Enviar video</a></li>
+                <li><a class="dropdown-item" href="#">Transmitir ao vivo</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="btn" role="button" id="dropdownMenuApps" data-bs-toggle="dropdown"
+                data-toggle="tooltip" data-bs-placement="left" title="YouTube Apps" aria-expanded="false">
+                <i class="fa fa-th"></i>
+              </a>
+       
+              <ul id="appsDrop" class="dropdown-menu ml-auto mr-auto" aria-labelledby="dropdownMenuApps"
+                aria-expanded="false">
+                <li><a class="dropdown-item" href="#">Youtube TV</a></li>
+                <li><a class="dropdown-item" href="#">Youtube para Artistas</a></li>
+                <li><a class="dropdown-item" href="#">Youtube Music</a></li>
+                <li><a class="dropdown-item" href="#">YouTube Kids</a></li>
+                <li><a class="dropdown-item" href="#">Escola de criadores de conteúdo</a></li>
+
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="btn" data-bs-toggle="popover" title="Notificações" data-bs-trigger="focus"
+                data-bs-content="Se inscreva nos canais favoritos para receber notificações"> <i
+                  class="fa fa-bell-o"></i></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="btn" data-bs-toggle="offcanvas" data-bs-target="#userProfile" role="button"
+                aria-controls="sidebar">
+                <span class="material-icons align-middle">account_circle</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div id="sidebar" class="offcanvas offcanvas-start" tabindex="-1">
+      <div class="d-flex flex-column">
+        <div class="d-flex">
+          <a href="#" class="mb-3 align-items-center link-dark text-decoration-none" data-bs-toggle="offcanvas"
+            data-bs-target="#sidebar" role="button">
+            <svg viewBox="0 0 16 16 16" class="bi" width="40" height="32">
+              <path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <img src="./assets/images/logo.png" alt="youtubeLogo" width="150" height="45">
+          </a>
+        </div>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">home</i><span class="px-2 align-middle">Inicío</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">explore</i><span class="px-2 align-middle">Explorar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">subscriptions</i>
+              <span class="px-2 align-middle">Inscrições</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">video_library</i>
+              <span class="px-2 align-middle">Biblioteca</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <hr class="w-100">
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons md-18 align-top">history</i>
+              <span class="px-2 align-middle">Histórico</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">smart_display</i>
+              <span class="px-2 align-middle">Seus vídeos</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">watch_later</i>
+              <span class="px-2 align-middle">Assistir mais tarde</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="fa fa-thumbs-up"></i>
+              <span class="px-2 align-middle">Videos marcados com gostei</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="btn a-canvas-font" data-bs-parent="#sidebar">
+              <i class="material-icons align-top">keyboard_arrow_down</i>
+              <span class="px-2 align-middle">Mostrar mais</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div id="userProfile" class="offcanvas offcanvas-end" tabindex="-1">
+      <div class="d-flex">
+        <a href="#" class="btn a-canvas-font" role="button">
+          <span class="material-icons">account_circle</span>
+        </a>
+        <span>Marcio<br><span class="fs-6 text-primary">Gerenciar sua Conta Google</span></span>
+      </div>
+      <hr class="w-100">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">account_box</i>
+            <span class="px-3 align-middle">Seu canal</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">monetization_on</i>
+            <span class="px-3 align-middle">Compras e assinaturas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">switch_account</i>
+            <span class="px-3 align-middle">Alteranar conta</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">logout</i>
+            <span class="px-3 align-middle">Sair</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <hr class="w-100">
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">brightness_3</i>
+            <span class="px-3 align-middle">Aparência e Tema</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">translate</i>
+            <span class="px-3 align-middle">Idioma: Português</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">language</i>
+            <span class="px-3 align-middle">Local: Brasil</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">settings</i>
+            <span class="px-3 align-middle">Configurções</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="list-group-item btn a-canvas-font" data-bs-parent="#sidebar">
+            <i class="material-icons align-top">help</i>
+            <span class="px-3 align-middle">Ajuda</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="searchModalLabel">Pesquisar com sua voz </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Para pesquisar por voz, acesse as configurações do seu navegador e permita o acesso ao microfone
+              <button type="button" class="btn btn-info" disabled>
+                <i class="fa fa-microphone"></i>
+              </button>
+            </p>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid">
+
+    <div id="mainContent">
+      <div class="row">
+        <div class="col-md-1 ">
+          <aside id="sidebarFixed" class="aside-box list-group text-sm-start">
+            <a href="#" class="list-group-item" data-bs-parent="#sidebarFixed">
+              <i class="material-icons">home</i>
+              <br>Início
+            </a>
+            <a href="#" class="list-group-item " data-bs-parent="#sidebarFixed">
+              <i class="material-icons">explore</i>
+              <br>Explorar
+            </a>
+            <a href="#" class="list-group-item" data-bs-parent="#sidebarFixed">
+              <i class="material-icons">subscriptions</i>
+              <br>Inscrições
+            </a>
+            <a href="#" class="list-group-item " data-bs-parent="#sidebarFixed">
+              <i class="material-icons">video_library</i>
+              <br>Biblioteca
+            </a>
+            <a href="#" class="list-group-item " data-bs-parent="#sidebarFixed">
+              <i class="material-icons">history</i>
+              <br>Histórico
+            </a>
+          </aside>
+        </div>
+
+        <div class="col-md-11">
+          <div class="d-md-flex pt-2">
+            <div id="slidingButtons" class="carousel slide sliding-genre" data-bs-ride="carousel" data-bs-touch="false"
+              data-bs-interval="false">
+              <div class="carousel-inner ms-2">
+                <div class="carousel-item active">
+                  <button type="button" class="btn btn-dark active rounded-pill">Tudo</button>
+                  <button type="button" class="btn btn-light rounded-pill">Mixes</button>
+                  <button type="button" class="btn btn-light rounded-pill">Música</button>
+                  <button type="button" class="btn btn-light rounded-pill">Grand Theft Auto V</button>
+                  <button type="button" class="btn btn-light rounded-pill">Pica pau</button>
+                  <button type="button" class="btn btn-light rounded-pill">Praias</button>
+                  <button type="button" class="btn btn-light rounded-pill">Surfe</button>
+                  <button type="button" class="btn btn-light rounded-pill">Mistério</button>
+                  <button type="button" class="btn btn-light rounded-pill">League of Legends</button>
+                  <button type="button" class="btn btn-light rounded-pill">Podcast</button>
+                  <button type="button" class="btn btn-light rounded-pill">Garena Free Fire</button>
+                  <button type="button" class="btn btn-light rounded-pill">Fortnite</button>
+                  <button type="button" class="btn btn-light rounded-pill">Javascript</button>
+                  <button type="button" class="btn btn-light rounded-pill">Dublagens</button>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="container pt-2">
+            <div class="row g-4">
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-dark">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/yQiBMr4ZoVM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLDuoDtBJLBm6NdgeYIQlMo2M7gIWg">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">Que Trava ele tomou mané<br> [live: jrv1eira]</h5>
+                        <p class="card-text">Clipadas GTA RP</p>
+                        <p >1.7 mil visualizações - há 2 horas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/6a22tYlrx8Y/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAxoxo7TmMI2saX9EEEXJrAFYYlFw">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">Mix de ELA QUER SE ENVOLVER COM A QUADRILHA ESTELIONATARIA - PENSÃO MILIONARIA - MCs Renatinho Falcão e K.K</h5>
+                        <p class="card-text">MC Lan, MC Gw, Funk 4.0 e outros</p>
+                        <p >120 mil visualizações - há 2 horas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/NLKtZ-HHk2c/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDTAXD64x-mvc3TxU7fQsuXKF4QFg">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">ASSISTA ESSE VÍDEO SE VOCÊ QUISER FICAR RICO</h5>
+                        <p class="card-text">Raiam Santos</p>
+                        <p >10 mil visualizações - há 6 horas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/Kj2Gq_J810w/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdo845traxdUI7J_kqqYpdNn4xWA">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">Fui Perseguido Por Um Caçador de Recompensas</h5>
+                        <p class="card-text">MrBeast Brasil</p>
+                        <p >150 mil visualizações - há 3 semanas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/mZBbJdi7nnw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAQ4d98l2MsApmPlaqisMMXwHvDyw">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">NADAMOS ATE A ILHA DE UM FRANCÊS E FOMOS EXPULSOS</h5>
+                        <p class="card-text">Boi Selvagem</p>
+                        <p >148 mil visualizações - há 2 meses</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/acuodeKxgGY/hq720_live.jpg?sqp=CIjaq4wG-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLATUMEN2J544qdXnoyJRzB1BSl1lA">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">FALCÃO - Podpah #276 </h5>
+                        <p class="card-text">Podpah </p>
+                        <p >15 mil assistindo - AO VIVO AGORA</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/Ptbk2af68e8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAttaLm5H1KnfrfZL4I-h9hk-N7IA">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">O que o JavaScript é capaz de fazer? - Curso JavaScript #01</h5>
+                        <p class="card-text">Curso em Vídeo</p>
+                        <p >1.244.498 visualizações - há 2 anos</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="card bg-light text-black">
+                  <img id="img" class="style-scope yt-img-shadow" alt="" width="100%"
+                    src="https://i.ytimg.com/vi/jtzBhKkUKXs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAaAQsdwm0p049ZvfBmxWiEYIjw8Q">
+                  <div class="card-img-overlay">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div>
+                        <h5 class="card-title">O Princípio Que TODO Programador Precisa Conhecer</h5>
+                        <p class="card-text">Filipe Deschamps</p>
+                        <p >185 mil visualizações - há 2 meses</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+      trigger: 'focus'
+    })
+  </script>
+
+</body>
+
+</html>
